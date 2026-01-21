@@ -226,11 +226,14 @@ const LandingPage = () => {
               </div>
               
               <div className="mt-4 text-center">
-                <p className="font-sans text-sm text-muted-foreground mb-1">
+                <p className="font-sans text-sm font-medium text-foreground mb-1">
                   {layouts[currentLayout].name}
                 </p>
+                <p className="font-mono text-xs tracking-wide text-muted-foreground mb-2">
+                  {layouts[currentLayout].audience}
+                </p>
                 <p className="font-sans text-xs text-muted-foreground">
-                  Mix photos with text quotes • Professional filters applied
+                  Professional filters applied • Mix of photos & text
                 </p>
               </div>
             </div>
