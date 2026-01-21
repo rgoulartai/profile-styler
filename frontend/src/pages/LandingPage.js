@@ -65,27 +65,17 @@ const LandingPage = () => {
             className="relative"
           >
             <div className="border border-border bg-card p-8">
-              <div className="instagram-grid">
-                {[
-                  "https://images.unsplash.com/photo-1686491730811-df4581911c55?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1675414502288-5118c114bdc0?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1635397199543-402bb9f2f7a4?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1641307734426-35217b09f50b?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1518832168546-8e34741a9dfb?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1645217709128-3ca7191704a0?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1549014999-a9e40e71c93b?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=400&fit=crop",
-                  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop"
-                ].map((url, i) => (
-                  <div key={i} className="instagram-grid-item bg-muted">
-                    <img 
-                      src={url}
-                      alt={`Grid ${i + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+              <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-4 text-center">
+                Example: Professional Instagram Layout
+              </p>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/enfy8woe_image.png"
+                alt="Professional Instagram grid layout example"
+                className="w-full h-auto"
+              />
+              <p className="font-sans text-sm text-center text-muted-foreground mt-4">
+                Cohesive aesthetic with photos, text overlays & consistent color scheme
+              </p>
             </div>
           </motion.div>
         </div>
