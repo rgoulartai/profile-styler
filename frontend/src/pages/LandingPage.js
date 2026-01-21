@@ -25,49 +25,6 @@ const LandingPage = () => {
       </nav>
 
       <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-4">What You Can Create</h2>
-          <p className="font-mono text-xs tracking-widest uppercase text-slate-500">Transform your Instagram profile</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h3 className="font-sans text-2xl font-semibold mb-4">Cohesive Aesthetics</h3>
-            <p className="font-sans text-base leading-relaxed text-slate-600 mb-4">
-              Create stunning grid layouts with consistent color palettes, typography overlays, and professional filters. 
-              Mix photos with text quotes, line art, and abstract shapes for a magazine-quality feed.
-            </p>
-            <ul className="space-y-2 font-sans text-base text-slate-600">
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">•</span>
-                <span>Elegant fashion & lifestyle grids</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">•</span>
-                <span>Text overlay posts with quotes</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">•</span>
-                <span>Minimalist line art & abstract elements</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">•</span>
-                <span>Consistent color schemes & branding</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="border border-border bg-card p-6">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/enfy8woe_image.png"
-              alt="Professional Instagram grid example"
-              className="w-full h-auto rounded-sm"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -111,13 +68,53 @@ const LandingPage = () => {
               <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-4 text-center">
                 Example: Professional Instagram Layout
               </p>
-              <img 
-                src="https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/enfy8woe_image.png"
-                alt="Professional Instagram grid layout example"
-                className="w-full h-auto"
-              />
+              <div className="instagram-grid mx-auto">
+                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
+                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Your brand tells a story before you say a word</p>
+                </div>
+                <div className="instagram-grid-item bg-muted">
+                  <img 
+                    src="https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop"
+                    alt="Grid 2"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
+                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Consistency is the foundation of recognition</p>
+                </div>
+                <div className="instagram-grid-item bg-muted">
+                  <img 
+                    src="https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop"
+                    alt="Grid 4"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
+                  <p className="font-serif text-sm text-center font-medium text-slate-800">Create. Curate. Captivate.</p>
+                </div>
+                <div className="instagram-grid-item bg-muted">
+                  <img 
+                    src="https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop"
+                    alt="Grid 6"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
+                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Every post is part of your visual identity</p>
+                </div>
+                <div className="instagram-grid-item bg-muted">
+                  <img 
+                    src="https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop"
+                    alt="Grid 8"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
+                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Design with intention, post with purpose</p>
+                </div>
+              </div>
               <p className="font-sans text-sm text-center text-muted-foreground mt-4">
-                Cohesive aesthetic with photos, text overlays & consistent color scheme
+                Mix photos with text quotes for a cohesive aesthetic
               </p>
             </div>
           </motion.div>
