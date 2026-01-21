@@ -61,6 +61,7 @@ const LandingPage = () => {
       setCurrentLayout((prev) => (prev + 1) % layouts.length);
     }, 4000);
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
