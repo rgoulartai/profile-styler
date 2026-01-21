@@ -197,47 +197,68 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className="instagram-grid mx-auto"
+                  className="w-full max-w-2xl"
                   data-testid="grid-preview"
                 >
-                  {gridPhotos.slice(0, 9).map((photo, index) => (
-                    <motion.div
-                      key={photo.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="instagram-grid-item border border-border bg-card overflow-hidden relative group"
-                      data-testid={`grid-cell-${index}`}
-                    >
-                      {photo.showText ? (
-                        <div className="bg-white/95 flex items-center justify-center p-4 h-full">
-                          <p className="font-serif text-xs text-center leading-tight text-slate-800">
-                            {photo.text}
-                          </p>
-                        </div>
-                      ) : (
-                        <>
-                          <img
-                            src={photo.url}
-                            alt={`Grid ${index + 1}`}
-                            className="w-full h-full object-cover filter-preview"
-                            style={{ filter: selectedFilter?.css || 'none' }}
-                          />
-                          {photo.isResult && (
-                            <div className="absolute top-2 right-2 bg-green-500 text-white text-[8px] px-2 py-0.5 font-mono uppercase">
-                              Result
-                            </div>
-                          )}
-                        </>
-                      )}
-                      
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <button className="text-white text-xs font-mono uppercase">
-                          Edit
-                        </button>
+                  {showRealExample && selectedPattern && realGridExamples[selectedPattern.id] ? (
+                    <div className="space-y-4">
+                      <img
+                        src={realGridExamples[selectedPattern.id].image}
+                        alt={realGridExamples[selectedPattern.id].name}
+                        className="w-full h-auto border border-border"
+                        style={{ filter: selectedFilter?.css || 'none' }}
+                      />
+                      <div className="text-center">
+                        <p className="font-sans text-sm text-muted-foreground">
+                          {realGridExamples[selectedPattern.id].description}
+                        </p>
+                        <p className="font-mono text-xs text-primary uppercase tracking-wide mt-1">
+                          Real {realGridExamples[selectedPattern.id].niche} Profile Example
+                        </p>
                       </div>
-                    </motion.div>
-                  ))}
+                    </div>
+                  ) : (
+                    <div className="instagram-grid mx-auto">
+                      {gridPhotos.slice(0, 9).map((photo, index) => (
+                        <motion.div
+                          key={photo.id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          className="instagram-grid-item border border-border bg-card overflow-hidden relative group"
+                          data-testid={`grid-cell-${index}`}
+                        >
+                          {photo.showText ? (
+                            <div className="bg-white/95 flex items-center justify-center p-4 h-full">
+                              <p className="font-serif text-xs text-center leading-tight text-slate-800">
+                                {photo.text}
+                              </p>
+                            </div>
+                          ) : (
+                            <>
+                              <img
+                                src={photo.url}
+                                alt={`Grid ${index + 1}`}
+                                className="w-full h-full object-cover filter-preview"
+                                style={{ filter: selectedFilter?.css || 'none' }}
+                              />
+                              {photo.isResult && (
+                                <div className="absolute top-2 right-2 bg-green-500 text-white text-[8px] px-2 py-0.5 font-mono uppercase">
+                                  Result
+                                </div>
+                              )}
+                            </>
+                          )}
+                          
+                          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button className="text-white text-xs font-mono uppercase">
+                              Edit
+                            </button>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </Card>
