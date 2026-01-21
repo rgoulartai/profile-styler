@@ -199,40 +199,33 @@ class InstagramProfileStylerTester:
             print("❌ Cannot test layout analysis - need at least 3 photos")
             return False
 
-        # Upload more photos if needed
-        while len(self.test_photos) < 3:
-            image_data = self.create_test_image(color=(100 + len(self.test_photos) * 50, 150, 200))
-            form_data = {'user_id': self.user_data['id']}
-            files = {'image': ('test_photo.jpg', image_data, 'image/jpeg')}
-            
-            success, response = self.run_test(
-                f"Photo Upload #{len(self.test_photos) + 1}",
-                "POST",
-                "photos",
-                200,
-                data=form_data,
-                files=files
-            )
-            
-            if success:
-                self.test_photos.append(response)
-
-        # Test layout analysis
+        # Test layout analysis with uploaded photos
         form_data = {
-            'user_id': self.user_data['id'],
-            'photo_ids': [photo['id'] for photo in self.test_photos[:3]]
+            'user_id': self.user_data['id']
         }
+        
+        # Add photo IDs to form data
+        for photo in self.test_photos[:3]:
+            form_data['photo_ids'] = photo['id']
+        
+        # Convert to multipart form data for the API
+        files = {}
+        data = {'user_id': self.user_data['id']}
+        for photo in self.test_photos[:3]:
+            files[f'photo_ids'] = (None, photo['id'])
         
         success, response = self.run_test(
             "AI Layout Analysis",
             "POST",
             "layouts/analyze",
             200,
-            data=form_data
+            data=data,
+            files=files
         )
         
         if success and 'suggestion' in response:
             print(f"   AI suggestion received (length: {len(response['suggestion'])} chars)")
+            print(f"   Photo count analyzed: {response.get('photo_count', 'unknown')}")
             return True
         return False
 
