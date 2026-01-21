@@ -41,17 +41,54 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
     let updatedGrid = [...samplePhotos];
 
     if (pattern.id === 'alternating') {
+      // Text → Photo → Text → Photo
       updatedGrid = samplePhotos.map((photo, idx) => ({
         ...photo,
         showText: idx % 2 === 0,
         text: textSuggestions.business[Math.floor(idx / 2) % 5]
       }));
-    } else if (pattern.id === 'rainbow_flow') {
-      updatedGrid = [...samplePhotos].sort((a, b) => a.dominantColor.localeCompare(b.dominantColor));
+    } else if (pattern.id === 'checkerboard') {
+      // Checkerboard pattern (alternating in 2D)
+      updatedGrid = samplePhotos.map((photo, idx) => {
+        const row = Math.floor(idx / 3);
+        const col = idx % 3;
+        return {
+          ...photo,
+          showText: (row + col) % 2 === 0,
+          text: textSuggestions.business[Math.floor(idx / 2) % 5]
+        };
+      });
+    } else if (pattern.id === 'timeline') {
+      // Row-based timeline (all photos, no text)
+      updatedGrid = [...samplePhotos];
     } else if (pattern.id === 'product_results') {
+      // Product → Results alternating
       updatedGrid = samplePhotos.map((photo, idx) => ({
         ...photo,
         isResult: idx % 2 === 1
+      }));
+    } else if (pattern.id === 'rainbow_flow') {
+      // Sort by dominant color for rainbow effect
+      updatedGrid = [...samplePhotos].sort((a, b) => a.dominantColor.localeCompare(b.dominantColor));
+    } else if (pattern.id === 'color_gradient') {
+      // Subtle color gradient (sort by color but maintain variety)
+      updatedGrid = [...samplePhotos].sort((a, b) => {
+        const typeOrder = { business: 1, fashion: 2, travel: 3 };
+        return (typeOrder[a.type] || 0) - (typeOrder[b.type] || 0);
+      });
+    } else if (pattern.id === 'background_unity') {
+      // Mix of photos and text with consistent theme
+      updatedGrid = samplePhotos.map((photo, idx) => ({
+        ...photo,
+        showText: idx % 3 === 1,
+        text: textSuggestions.food[Math.floor(idx / 3) % 5]
+      }));
+    } else if (pattern.id === 'moody_motivation') {
+      // Dark photos with motivational text
+      updatedGrid = samplePhotos.map((photo, idx) => ({
+        ...photo,
+        showText: [1, 3, 5, 7].includes(idx),
+        text: textSuggestions.fitness[Math.floor(idx / 2) % 5]
       }));
     }
 
