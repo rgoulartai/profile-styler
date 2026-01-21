@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Instagram, LogOut, Upload, Wand2, Grid3x3, Image as ImageIcon } from 'lucide-react';
+import { Instagram, LogOut, Upload, Wand2, Grid3x3, Image as ImageIcon, X } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'sonner';
 
@@ -53,6 +53,16 @@ const Dashboard = ({ user, onLogout }) => {
       toast.error('Failed to upload photos');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeletePhoto = async (photoId) => {
+    try {
+      await axios.delete(`${API}/photos/${photoId}`);
+      toast.success('Photo deleted successfully!');
+      fetchData();
+    } catch (error) {
+      toast.error('Failed to delete photo');
     }
   };
 
@@ -150,25 +160,63 @@ const Dashboard = ({ user, onLogout }) => {
               <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground">Loading...</p>
             </div>
           ) : photos.length > 0 ? (
-            <div data-testid="photos-grid">
-              <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-6">Your Photos</h2>
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {photos.map((photo) => (
-                  <motion.div
-                    key={photo.id}
-                    data-testid={`photo-item-${photo.id}`}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="aspect-square border border-border bg-card overflow-hidden"
-                  >
-                    <img
-                      src={`data:image/jpeg;base64,${photo.image_data}`}
-                      alt="Uploaded"
-                      className="w-full h-full object-cover"
-                      style={{ filter: photo.filter_applied || 'none' }}
-                    />
-                  </motion.div>
-                ))}
+            <div>
+              <div data-testid="current-instagram-grid" className="mb-12">
+                <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-6">Current Instagram Layout</h2>
+                <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-6">Preview of your profile grid</p>
+                <div className="instagram-grid mx-auto">
+                  {photos.slice(0, 9).map((photo, index) => (
+                    <motion.div
+                      key={photo.id}
+                      data-testid={`instagram-preview-${index}`}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="instagram-grid-item border border-border bg-card overflow-hidden"
+                    >
+                      <img
+                        src={`data:image/jpeg;base64,${photo.image_data}`}
+                        alt={`Grid ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        style={{ filter: photo.filter_applied || 'none' }}
+                      />
+                    </motion.div>
+                  ))}
+                  {Array.from({ length: Math.max(0, 9 - photos.length) }).map((_, i) => (
+                    <div key={`empty-${i}`} className="instagram-grid-item border border-dashed border-border bg-muted/20 flex items-center justify-center">
+                      <span className="text-muted-foreground text-xs">{photos.length + i + 1}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div data-testid="photos-grid">
+                <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-6">All Photos</h2>
+                <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  {photos.map((photo) => (
+                    <motion.div
+                      key={photo.id}
+                      data-testid={`photo-item-${photo.id}`}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="aspect-square border border-border bg-card overflow-hidden relative group"
+                    >
+                      <img
+                        src={`data:image/jpeg;base64,${photo.image_data}`}
+                        alt="Uploaded"
+                        className="w-full h-full object-cover"
+                        style={{ filter: photo.filter_applied || 'none' }}
+                      />
+                      <button
+                        data-testid={`delete-photo-${photo.id}`}
+                        onClick={() => handleDeletePhoto(photo.id)}
+                        className="absolute top-2 right-2 bg-destructive text-destructive-foreground rounded-none w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-destructive/90"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           ) : (
