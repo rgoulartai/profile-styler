@@ -1,3 +1,36 @@
+export const realGridExamples = {
+  rainbow_flow: {
+    name: 'Rainbow Flow',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/zya5geas_Screenshot%202026-01-21%20at%206.01.23%E2%80%AFAM.png',
+    description: 'Color gradient fashion grid - @sarah_peretz style',
+    niche: 'Fashion'
+  },
+  moody_motivation: {
+    name: 'Moody Motivation',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/zgkguxwd_Screenshot%202026-01-21%20at%206.30.52%E2%80%AFAM.png',
+    description: 'Dark motivational fitness grid with text overlays',
+    niche: 'Fitness'
+  },
+  background_unity: {
+    name: 'Background Unity',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/9kuv0yic_Screenshot%202026-01-21%20at%206.29.56%E2%80%AFAM.png',
+    description: 'Consistent backgrounds with text - @romanova.fitness',
+    niche: 'Fitness'
+  },
+  timeline: {
+    name: 'Timeline Story',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/u2hyy0op_Screenshot%202026-01-21%20at%206.02.27%E2%80%AFAM.png',
+    description: 'Travel journey - morning, midday, sunset rows',
+    niche: 'Travel'
+  },
+  product_results: {
+    name: 'Product → Results',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/c3godq61_Screenshot%202026-01-21%20at%206.02.16%E2%80%AFAM.png',
+    description: 'Beauty products alternating with model shots - @morphebrushes',
+    niche: 'Beauty'
+  }
+};
+
 export const samplePhotos = [
   {
     id: 'sample-1',
