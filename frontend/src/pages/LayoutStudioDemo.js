@@ -34,8 +34,16 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
 
   const handlePatternSelect = (pattern) => {
     setSelectedPattern(pattern);
-    toast.success(`${pattern.name} pattern applied!`);
-    applyPattern(pattern);
+    
+    // Check if we have a real example for this pattern
+    if (realGridExamples[pattern.id]) {
+      setShowRealExample(true);
+      toast.success(`${pattern.name} - Real Instagram example!`);
+    } else {
+      setShowRealExample(false);
+      applyPattern(pattern);
+      toast.success(`${pattern.name} pattern applied!`);
+    }
   };
 
   const applyPattern = (pattern) => {
