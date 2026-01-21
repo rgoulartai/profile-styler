@@ -10,7 +10,8 @@ const LandingPage = () => {
 
   const layouts = [
     {
-      name: "Minimalist Professional",
+      name: "Business & Professional",
+      audience: "Entrepreneurs & Coaches",
       filter: "brightness(105%) contrast(110%) saturate(105%)",
       items: [
         { type: 'text', content: 'Your brand tells a story before you say a word' },
@@ -19,39 +20,89 @@ const LandingPage = () => {
         { type: 'image', url: 'https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop' },
         { type: 'text', content: 'Create. Curate. Captivate.' },
         { type: 'image', url: 'https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Every post is part of your visual identity' },
+        { type: 'text', content: 'Strategic content builds authority' },
         { type: 'image', url: 'https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop' },
         { type: 'text', content: 'Design with intention, post with purpose' }
       ]
     },
     {
-      name: "Vintage Warmth",
-      filter: "sepia(30%) saturate(120%) brightness(105%)",
+      name: "Beauty & Cosmetics",
+      audience: "Makeup Artists & Beauty Brands",
+      filter: "brightness(110%) saturate(115%) contrast(105%)",
       items: [
-        { type: 'image', url: 'https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Quality over quantity, always' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Build a brand that resonates' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Authenticity attracts' },
-        { type: 'image', url: 'https://images.pexels.com/photos/19238352/pexels-photo-19238352.jpeg?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Your aesthetic, your rules' },
-        { type: 'image', url: 'https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop' }
+        { type: 'image', url: 'https://images.unsplash.com/photo-1595051665600-afd01ea7c446?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Glow Up Your Feed' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1606158582120-b4fc196bffad?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Beauty is an art, your grid is the canvas' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1688955665338-fb430ff8436d?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Curate your aesthetic' },
+        { type: 'image', url: 'https://images.pexels.com/photos/2536009/pexels-photo-2536009.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Every post is a statement' },
+        { type: 'image', url: 'https://images.pexels.com/photos/13534782/pexels-photo-13534782.jpeg?w=400&h=400&fit=crop' }
       ]
     },
     {
-      name: "Moody & Dramatic",
-      filter: "brightness(85%) contrast(120%) saturate(90%)",
+      name: "Travel & Adventure",
+      audience: "Travel Bloggers & Wanderlusters",
+      filter: "brightness(110%) saturate(120%) contrast(108%)",
       items: [
-        { type: 'text', content: 'Stand out in the feed' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Bold content, bold brand' },
-        { type: 'image', url: 'https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Make an impact' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop' },
-        { type: 'text', content: 'Visual storytelling done right' },
-        { type: 'image', url: 'https://images.pexels.com/photos/19238352/pexels-photo-19238352.jpeg?w=400&h=400&fit=crop' }
+        { type: 'text', content: 'Wanderlust captured in every frame' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1723065219121-3bfaf2170563?w=400&h=400&fit=crop' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1764451273176-257d1ef57052?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Explore. Dream. Discover.' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1763845982603-289707ee22e6?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Your passport to a stunning feed' },
+        { type: 'image', url: 'https://images.pexels.com/photos/16427719/pexels-photo-16427719.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Adventure awaits in every post' },
+        { type: 'image', url: 'https://images.pexels.com/photos/28743772/pexels-photo-28743772.jpeg?w=400&h=400&fit=crop' }
+      ]
+    },
+    {
+      name: "Fashion & Style",
+      audience: "Fashion Influencers & Stylists",
+      filter: "contrast(115%) saturate(110%) brightness(102%)",
+      items: [
+        { type: 'image', url: 'https://images.unsplash.com/photo-1739773375456-79be292cedb1?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Style is a way to say who you are' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1739773375403-36a4ba177f73?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Fashion fades, style is eternal' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1739773375426-880a10bea9a9?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Dress your feed in confidence' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Curate your signature look' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop' }
+      ]
+    },
+    {
+      name: "Health & Fitness",
+      audience: "Fitness Coaches & Wellness Brands",
+      filter: "contrast(112%) saturate(105%) brightness(108%)",
+      items: [
+        { type: 'text', content: 'Strong feed, stronger you' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1666979290238-2d862b573345?w=400&h=400&fit=crop' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1701457916764-7cc7c990b37a?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Transform your profile, inspire your audience' },
+        { type: 'image', url: 'https://images.pexels.com/photos/3888343/pexels-photo-3888343.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Fitness is a lifestyle' },
+        { type: 'image', url: 'https://images.pexels.com/photos/4162553/pexels-photo-4162553.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Consistency builds results' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1666979290090-dde24b4614bb?w=400&h=400&fit=crop' }
+      ]
+    },
+    {
+      name: "Food & Culinary",
+      audience: "Food Bloggers & Restaurants",
+      filter: "sepia(20%) saturate(130%) brightness(108%)",
+      items: [
+        { type: 'image', url: 'https://images.unsplash.com/photo-1757358957218-67e771ec07bb?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Good food, beautiful grid' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1689997122000-c94449288dd1?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Plate it, post it, perfect it' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1632898657999-ae6920976661?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Feed your audience visually' },
+        { type: 'image', url: 'https://images.pexels.com/photos/19606040/pexels-photo-19606040.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Taste the aesthetic' },
+        { type: 'image', url: 'https://images.pexels.com/photos/13485216/pexels-photo-13485216.jpeg?w=400&h=400&fit=crop' }
       ]
     }
   ];
