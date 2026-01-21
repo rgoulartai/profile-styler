@@ -186,8 +186,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-4">Features</h2>
           <p className="font-mono text-xs tracking-widest uppercase text-slate-500">Everything you need</p>
         </div>
@@ -240,8 +240,8 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-4">What You Can Create</h2>
           <p className="font-mono text-xs tracking-widest uppercase text-slate-500">Transform your Instagram profile</p>
         </div>
@@ -323,7 +323,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <footer className="border-t border-border/50 mt-24">
+      <footer className="border-t border-border/50 mt-12">
         <div className="max-w-7xl mx-auto px-6 py-8 text-center">
           <p className="font-mono text-xs tracking-widest uppercase text-slate-500">
             © 2025 ProfileStyler. Built with Emergent.
