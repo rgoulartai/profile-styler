@@ -81,7 +81,7 @@ const LandingPage = () => {
         </div>
       </nav>
 
-      <section className="max-w-7xl mx-auto px-6 py-24">
+      <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -122,57 +122,65 @@ const LandingPage = () => {
             className="relative"
           >
             <div className="border border-border bg-card p-8">
-              <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-4 text-center">
-                Example: Professional Instagram Layout
-              </p>
-              <div className="instagram-grid mx-auto">
-                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
-                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Your brand tells a story before you say a word</p>
-                </div>
-                <div className="instagram-grid-item bg-muted">
-                  <img 
-                    src="https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop"
-                    alt="Grid 2"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
-                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Consistency is the foundation of recognition</p>
-                </div>
-                <div className="instagram-grid-item bg-muted">
-                  <img 
-                    src="https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop"
-                    alt="Grid 4"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
-                  <p className="font-serif text-sm text-center font-medium text-slate-800">Create. Curate. Captivate.</p>
-                </div>
-                <div className="instagram-grid-item bg-muted">
-                  <img 
-                    src="https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop"
-                    alt="Grid 6"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
-                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Every post is part of your visual identity</p>
-                </div>
-                <div className="instagram-grid-item bg-muted">
-                  <img 
-                    src="https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop"
-                    alt="Grid 8"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-4">
-                  <p className="font-serif text-xs text-center leading-tight text-slate-800">Design with intention, post with purpose</p>
+              <div className="flex items-center justify-between mb-4">
+                <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
+                  Layout Examples
+                </p>
+                <div className="flex gap-2">
+                  {layouts.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentLayout(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        currentLayout === index ? 'bg-primary w-6' : 'bg-muted-foreground/30'
+                      }`}
+                      aria-label={`Switch to layout ${index + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
-              <p className="font-sans text-sm text-center text-muted-foreground mt-4">
-                Mix photos with text quotes for a cohesive aesthetic
-              </p>
+              
+              <div className="relative overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentLayout}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="instagram-grid mx-auto">
+                      {layouts[currentLayout].items.map((item, index) => (
+                        <div key={index} className="instagram-grid-item border border-border overflow-hidden">
+                          {item.type === 'text' ? (
+                            <div className="bg-white/90 flex items-center justify-center p-4 h-full">
+                              <p className="font-serif text-xs text-center leading-tight text-slate-800">
+                                {item.content}
+                              </p>
+                            </div>
+                          ) : (
+                            <img 
+                              src={item.url}
+                              alt={`Grid ${index + 1}`}
+                              className="w-full h-full object-cover"
+                              style={{ filter: layouts[currentLayout].filter }}
+                            />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <p className="font-sans text-sm text-muted-foreground mb-1">
+                  {layouts[currentLayout].name}
+                </p>
+                <p className="font-sans text-xs text-muted-foreground">
+                  Mix photos with text quotes • Professional filters applied
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
