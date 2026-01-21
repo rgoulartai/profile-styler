@@ -36,8 +36,6 @@ const LayoutStudio = ({ user, onLogout }) => {
 
   useEffect(() => {
     fetchData();
-    // Simulate loading Instagram photos
-    setInstagramPhotos(mockInstagramPhotos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
