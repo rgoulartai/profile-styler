@@ -128,71 +128,22 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
       </nav>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid lg:grid-cols-[350px_1fr_320px] gap-8">
-          <div className="space-y-6">
-            <Card className="border border-border bg-card p-6">
-              <Tabs defaultValue="patterns" className="w-full">
-                <TabsList className="w-full rounded-none bg-secondary mb-4">
-                  <TabsTrigger value="patterns" className="rounded-none flex-1 font-mono text-xs uppercase">
-                    <Grid3x3 className="w-3 h-3 mr-1" />
-                    Patterns
-                  </TabsTrigger>
-                  <TabsTrigger value="filters" className="rounded-none flex-1 font-mono text-xs uppercase">
-                    <Sparkles className="w-3 h-3 mr-1" />
-                    Filters
-                  </TabsTrigger>
-                </TabsList>
-
-                <TabsContent value="patterns" className="mt-0">
-                  <PatternLibrary 
-                    selectedPattern={selectedPattern}
-                    onSelectPattern={handlePatternSelect}
-                  />
-                </TabsContent>
-
-                <TabsContent value="filters" className="mt-0">
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="font-sans text-lg font-semibold mb-2">Filters</h3>
-                      <p className="font-sans text-sm text-muted-foreground mb-4">
-                        Choose a filter to apply to your grid
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-2">
-                      {filters.map((filter) => (
-                        <Card
-                          key={filter.id}
-                          data-testid={`filter-${filter.id}`}
-                          onClick={() => {
-                            setSelectedFilter(filter);
-                            toast.success(`${filter.name} applied!`);
-                          }}
-                          className={`border p-3 cursor-pointer transition-all ${
-                            selectedFilter?.id === filter.id
-                              ? 'border-primary bg-primary/10'
-                              : 'border-border bg-card hover:border-primary/50'
-                          }`}
-                        >
-                          <h4 className="font-sans text-sm font-semibold">{filter.name}</h4>
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                </TabsContent>
-              </Tabs>
-            </Card>
-          </div>
-
-          <div>
+        <div className="grid lg:grid-cols-2 gap-8 h-[calc(100vh-180px)]">
+          {/* LEFT - Fixed Grid Preview */}
+          <div className="flex flex-col">
             <div className="mb-6">
-              <h2 className="font-serif text-4xl font-medium tracking-tight mb-2">Grid Preview</h2>
+              <h2 className="font-serif text-4xl font-medium tracking-tight mb-2">Your Grid</h2>
               <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground">
-                {selectedPattern ? selectedPattern.name : 'Select a pattern to begin'}
+                {selectedPattern ? selectedPattern.name : 'Select a pattern from the right'}
               </p>
+              {selectedFilter && (
+                <p className="font-sans text-sm text-muted-foreground mt-1">
+                  Filter: {selectedFilter.name}
+                </p>
+              )}
             </div>
 
-            <Card className="border border-border bg-card p-8">
+            <Card className="border border-border bg-card p-8 flex-1 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedPattern?.id || 'default'}
@@ -262,64 +213,160 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <Card className="border border-border bg-card p-6">
-              <h3 className="font-sans text-lg font-semibold mb-3 flex items-center gap-2">
-                <Wand2 className="w-5 h-5 text-primary" />
-                Quick Tips
-              </h3>
-              <ul className="space-y-3 font-sans text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span>Click any pattern to instantly apply it to your grid</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span>Try different filters to match your brand aesthetic</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span>Use "AI Magic" for instant professional layouts</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  <span>Hover over grid cells to edit individual items</span>
-                </li>
-              </ul>
-            </Card>
+          {/* RIGHT - Scrollable Pattern & Filter Selection */}
+          <div className="overflow-y-auto pr-2">
+            <div className="space-y-6 pb-6">
+              {/* Patterns Section */}
+              <div>
+                <h3 className="font-serif text-3xl font-medium tracking-tight mb-1">Layout Patterns</h3>
+                <p className="font-sans text-sm text-muted-foreground mb-6">
+                  Choose a pattern that fits your content style
+                </p>
 
-            <Card className="border border-primary/50 bg-primary/5 p-6">
-              <h3 className="font-sans text-lg font-semibold mb-2 text-primary">Demo Mode</h3>
-              <p className="font-sans text-sm text-foreground/80 mb-4">
-                You're viewing demo sample photos. Connect your Instagram to see your actual content!
-              </p>
-              <Button
-                className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 font-medium uppercase tracking-wide text-sm"
-                onClick={() => toast.info('Instagram connection coming soon!')}
-              >
-                Connect Instagram
-              </Button>
-            </Card>
-
-            {selectedPattern && (
-              <Card className="border border-border bg-card p-6">
-                <h3 className="font-sans text-lg font-semibold mb-3">Current Selection</h3>
-                <div className="space-y-2 font-sans text-sm">
-                  <div>
-                    <span className="text-muted-foreground">Pattern:</span>
-                    <span className="ml-2 font-semibold">{selectedPattern.name}</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Filter:</span>
-                    <span className="ml-2 font-semibold">{selectedFilter.name}</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground">Best For:</span>
-                    <span className="ml-2 font-semibold">{selectedPattern.bestFor}</span>
-                  </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    {
+                      id: 'alternating',
+                      name: 'Alternating',
+                      description: 'Text/photo rotation',
+                      bestFor: 'Business',
+                      preview: ['T', 'P', 'T', 'P', 'T', 'P', 'T', 'P', 'T']
+                    },
+                    {
+                      id: 'checkerboard',
+                      name: 'Checkerboard',
+                      description: '2D pattern',
+                      bestFor: 'Variety',
+                      preview: ['P', 'T', 'P', 'T', 'P', 'T', 'P', 'T', 'P']
+                    },
+                    {
+                      id: 'timeline',
+                      name: 'Timeline',
+                      description: 'Theme per row',
+                      bestFor: 'Travel',
+                      preview: ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P']
+                    },
+                    {
+                      id: 'product_results',
+                      name: 'Product → Results',
+                      description: 'Show & demo',
+                      bestFor: 'Beauty',
+                      preview: ['P', 'R', 'P', 'R', 'P', 'R', 'P', 'R', 'P']
+                    },
+                    {
+                      id: 'rainbow_flow',
+                      name: 'Rainbow Flow',
+                      description: 'Color rows',
+                      bestFor: 'Fashion',
+                      preview: ['B', 'B', 'B', 'G', 'G', 'G', 'Y', 'Y', 'Y']
+                    },
+                    {
+                      id: 'color_gradient',
+                      name: 'Color Gradient',
+                      description: 'Subtle transition',
+                      bestFor: 'Lifestyle',
+                      preview: ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P']
+                    },
+                    {
+                      id: 'background_unity',
+                      name: 'Background Unity',
+                      description: 'Consistent BG',
+                      bestFor: 'Food',
+                      preview: ['P', 'T', 'P', 'T', 'P', 'T', 'P', 'T', 'P']
+                    },
+                    {
+                      id: 'moody_motivation',
+                      name: 'Moody Dark',
+                      description: 'Dramatic style',
+                      bestFor: 'Fitness',
+                      preview: ['D', 'T', 'D', 'T', 'D', 'T', 'D', 'T', 'D']
+                    }
+                  ].map((pattern) => (
+                    <Card
+                      key={pattern.id}
+                      data-testid={`pattern-${pattern.id}`}
+                      onClick={() => handlePatternSelect(pattern)}
+                      className={`relative cursor-pointer border p-3 transition-all hover:border-primary/50 ${
+                        selectedPattern?.id === pattern.id
+                          ? 'border-primary bg-primary/5'
+                          : 'border-border bg-card'
+                      }`}
+                    >
+                      {selectedPattern?.id === pattern.id && (
+                        <div className="absolute top-2 right-2 w-4 h-4 bg-primary rounded-full flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                      )}
+                      
+                      <div className="grid grid-cols-3 gap-0.5 mb-2">
+                        {pattern.preview.map((cell, idx) => (
+                          <div
+                            key={idx}
+                            className={`aspect-square text-[6px] flex items-center justify-center font-mono ${
+                              cell === 'T' ? 'bg-muted' :
+                              cell === 'P' ? 'bg-primary/20' :
+                              cell === 'R' ? 'bg-green-500/20' :
+                              cell === 'B' ? 'bg-blue-500/40' :
+                              cell === 'G' ? 'bg-green-500/40' :
+                              cell === 'Y' ? 'bg-yellow-500/40' :
+                              cell === 'D' ? 'bg-slate-800' : 'bg-slate-500/20'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      
+                      <h4 className="font-sans text-sm font-semibold mb-0.5">{pattern.name}</h4>
+                      <p className="font-sans text-xs text-muted-foreground mb-1">{pattern.description}</p>
+                      <p className="font-mono text-[9px] text-primary uppercase tracking-wide">
+                        {pattern.bestFor}
+                      </p>
+                    </Card>
+                  ))}
                 </div>
+              </div>
+
+              {/* Filters Section */}
+              <div>
+                <h3 className="font-serif text-3xl font-medium tracking-tight mb-1">Filters</h3>
+                <p className="font-sans text-sm text-muted-foreground mb-6">
+                  Apply professional filters to your photos
+                </p>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {filters.map((filter) => (
+                    <Card
+                      key={filter.id}
+                      data-testid={`filter-${filter.id}`}
+                      onClick={() => {
+                        setSelectedFilter(filter);
+                        toast.success(`${filter.name} applied!`);
+                      }}
+                      className={`border p-3 cursor-pointer transition-all ${
+                        selectedFilter?.id === filter.id
+                          ? 'border-primary bg-primary/10'
+                          : 'border-border bg-card hover:border-primary/50'
+                      }`}
+                    >
+                      <h4 className="font-sans text-sm font-semibold">{filter.name}</h4>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Demo Info */}
+              <Card className="border border-primary/50 bg-primary/5 p-6">
+                <h3 className="font-sans text-lg font-semibold mb-2 text-primary">Demo Mode</h3>
+                <p className="font-sans text-sm text-foreground/80 mb-4">
+                  You're viewing sample photos. Connect Instagram to use your actual content!
+                </p>
+                <Button
+                  className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 font-medium uppercase tracking-wide text-sm"
+                  onClick={() => toast.info('Instagram connection coming soon!')}
+                >
+                  Connect Instagram
+                </Button>
               </Card>
-            )}
+            </div>
           </div>
         </div>
       </div>
