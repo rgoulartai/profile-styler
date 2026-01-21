@@ -47,13 +47,36 @@ const LayoutStudio = ({ user, onLogout }) => {
         axios.get(`${API}/photos/${user.id}`),
         axios.get(`${API}/filters`)
       ]);
+      
       setPhotos(photosRes.data);
       setFilters(filtersRes.data);
       if (filtersRes.data.length > 0) {
         setSelectedFilter(filtersRes.data[0]);
       }
+      
+      // Combine user's uploaded photos with mock Instagram photos
+      const userPhotos = photosRes.data.map(photo => ({
+        type: 'uploaded',
+        data: `data:image/jpeg;base64,${photo.image_data}`,
+        id: photo.id
+      }));
+      
+      const mockPhotos = mockInstagramPhotos.slice(userPhotos.length).map((url, idx) => ({
+        type: 'mock',
+        data: url,
+        id: `mock-${idx}`
+      }));
+      
+      setInstagramPhotos([...userPhotos, ...mockPhotos].slice(0, 9));
+      
     } catch (error) {
       toast.error('Failed to load data');
+      // Still show mock photos on error
+      setInstagramPhotos(mockInstagramPhotos.slice(0, 9).map((url, idx) => ({
+        type: 'mock',
+        data: url,
+        id: `mock-${idx}`
+      })));
     } finally {
       setLoading(false);
     }
