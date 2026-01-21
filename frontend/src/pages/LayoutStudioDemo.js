@@ -28,22 +28,16 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
   const [aiSuggesting, setAiSuggesting] = useState(false);
 
   useEffect(() => {
-    // Initialize with sample photos
     setGridPhotos(samplePhotos);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePatternSelect = (pattern) => {
     setSelectedPattern(pattern);
     toast.success(`${pattern.name} pattern applied!`);
-    
-    // Apply pattern logic
     applyPattern(pattern);
   };
 
   const applyPattern = (pattern) => {
-    // This is where pattern application logic would go
-    // For demo, we just update the grid with appropriate items
     let updatedGrid = [...samplePhotos];
 
     if (pattern.id === 'alternating') {
@@ -53,7 +47,6 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
         text: textSuggestions.business[Math.floor(idx / 2) % 5]
       }));
     } else if (pattern.id === 'rainbow_flow') {
-      // Sort by color for rainbow effect
       updatedGrid = [...samplePhotos].sort((a, b) => a.dominantColor.localeCompare(b.dominantColor));
     } else if (pattern.id === 'product_results') {
       updatedGrid = samplePhotos.map((photo, idx) => ({
@@ -68,7 +61,6 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
   const handleAISuggestion = () => {
     setAiSuggesting(true);
     
-    // Simulate AI analysis
     setTimeout(() => {
       const suggestedPattern = {
         id: 'alternating',
@@ -78,16 +70,11 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
       };
       
       setSelectedPattern(suggestedPattern);
-      setSelectedFilter(filters[1]); // Vintage
+      setSelectedFilter(filters[1]);
       applyPattern(suggestedPattern);
       
       setAiSuggesting(false);
-      toast.success(
-        <div>
-          <p className="font-semibold">AI Suggestion Applied!</p>
-          <p className="text-sm">Alternating pattern with Vintage Warmth filter</p>
-        </div>
-      );
+      toast.success('AI Suggestion Applied! Alternating pattern with Vintage Warmth filter');
     }, 2000);
   };
 
@@ -142,7 +129,6 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid lg:grid-cols-[350px_1fr_320px] gap-8">
-          {/* Left Sidebar - Pattern & Filter Selection */}
           <div className="space-y-6">
             <Card className="border border-border bg-card p-6">
               <Tabs defaultValue="patterns" className="w-full">
@@ -198,7 +184,6 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
             </Card>
           </div>
 
-          {/* Center - Grid Preview */}
           <div>
             <div className="mb-6">
               <h2 className="font-serif text-4xl font-medium tracking-tight mb-2">Grid Preview</h2>
@@ -277,7 +262,6 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
             </div>
           </div>
 
-          {/* Right Sidebar - Info & Actions */}
           <div className="space-y-6">
             <Card className="border border-border bg-card p-6">
               <h3 className="font-sans text-lg font-semibold mb-3 flex items-center gap-2">
