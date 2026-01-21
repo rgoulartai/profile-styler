@@ -77,7 +77,8 @@ const LayoutStudio = ({ user, onLogout }) => {
       };
       await axios.post(`${API}/layouts`, layout);
       toast.success('Layout approved and saved!');
-      navigate('/dashboard');
+      setAiSuggestion('');
+      fetchData();
     } catch (error) {
       toast.error('Failed to save layout');
     }
@@ -168,17 +169,14 @@ const LayoutStudio = ({ user, onLogout }) => {
                 </TabsList>
 
                 <TabsContent value="filters" className="mt-6">
+                  <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-4">Select a filter to preview</p>
                   <div data-testid="filters-list" className="grid grid-cols-2 gap-4">
                     {filters.map((filter) => (
                       <Card
                         key={filter.id}
                         data-testid={`filter-${filter.name.toLowerCase()}`}
                         onClick={() => setSelectedFilter(filter)}
-                        className={`border p-4 cursor-pointer transition-all ${
-                          selectedFilter?.id === filter.id
-                            ? 'border-primary bg-primary/10'
-                            : 'border-border bg-card hover:border-primary/50'
-                        }`}
+                        className={`border p-4 cursor-pointer transition-all ${\n                          selectedFilter?.id === filter.id\n                            ? 'border-primary bg-primary/10'\n                            : 'border-border bg-card hover:border-primary/50'\n                        }`}
                       >
                         <h3 className="font-sans text-lg font-semibold mb-1">{filter.name}</h3>
                         <p className="font-sans text-sm text-muted-foreground">{filter.description}</p>
@@ -188,6 +186,7 @@ const LayoutStudio = ({ user, onLogout }) => {
                 </TabsContent>
 
                 <TabsContent value="ai" className="mt-6">
+                  <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-4">Get AI-powered layout recommendations</p>
                   <Button
                     data-testid="analyze-layout-btn"
                     onClick={handleAnalyze}
@@ -202,9 +201,13 @@ const LayoutStudio = ({ user, onLogout }) => {
                     <Card data-testid="ai-suggestion-card" className="border border-border bg-card p-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Sparkles className="w-5 h-5 text-primary" />
-                        <h3 className="font-sans text-lg font-semibold">AI Suggestion</h3>
+                        <h3 className="font-sans text-lg font-semibold">AI Recommendation</h3>
                       </div>
-                      <p className="font-sans text-sm text-muted-foreground whitespace-pre-wrap mb-6">{aiSuggestion}</p>
+                      <div className="font-sans text-base leading-relaxed text-foreground mb-6 space-y-3">
+                        {aiSuggestion.split('\n').map((line, i) => (
+                          line.trim() && <p key={i}>{line.replace(/[*#]/g, '')}</p>
+                        ))}
+                      </div>
                       <div className="flex gap-3">
                         <Button
                           data-testid="approve-layout-btn"
@@ -212,7 +215,7 @@ const LayoutStudio = ({ user, onLogout }) => {
                           className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6 font-medium uppercase tracking-wide text-sm transition-all active:scale-95"
                         >
                           <Check className="w-4 h-4 mr-2" />
-                          Approve
+                          Approve & Save
                         </Button>
                         <Button
                           data-testid="reject-layout-btn"
@@ -221,7 +224,7 @@ const LayoutStudio = ({ user, onLogout }) => {
                           className="rounded-none border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-6 font-medium uppercase tracking-wide text-sm"
                         >
                           <X className="w-4 h-4 mr-2" />
-                          Reject
+                          Try Again
                         </Button>
                       </div>
                     </Card>
