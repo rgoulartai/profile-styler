@@ -157,7 +157,7 @@ const Dashboard = ({ user, onLogout }) => {
             <Button
               data-testid="go-to-studio-btn"
               onClick={() => navigate('/studio')}
-              disabled={photos.length < 3}
+              disabled={photos.length < 1}
               className="rounded-none border border-input bg-background hover:bg-accent hover:text-accent-foreground h-12 px-8 font-medium uppercase tracking-wide text-sm"
             >
               <Wand2 className="w-4 h-4 mr-2" />
