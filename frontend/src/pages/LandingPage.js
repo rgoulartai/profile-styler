@@ -175,6 +175,89 @@ const LandingPage = () => {
         </div>
       </section>
 
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-4">What You Can Create</h2>
+          <p className="font-mono text-xs tracking-widest uppercase text-slate-500">Transform your Instagram profile</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="font-sans text-2xl font-semibold mb-4">Cohesive Aesthetics</h3>
+            <p className="font-sans text-base leading-relaxed text-slate-600 mb-4">
+              Create stunning grid layouts with consistent color palettes, typography overlays, and professional filters. 
+              Mix photos with text quotes, line art, and abstract shapes for a magazine-quality feed.
+            </p>
+            <ul className="space-y-2 font-sans text-base text-slate-600">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Elegant fashion & lifestyle grids</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Text overlay posts with quotes</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Minimalist line art & abstract elements</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span>Consistent color schemes & branding</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="border border-border bg-card p-6">
+            <div className="instagram-grid mx-auto">
+              <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-3">
+                <p className="font-serif text-[10px] text-center leading-tight text-slate-800">Strategic content builds authority</p>
+              </div>
+              <div className="instagram-grid-item bg-muted">
+                <img 
+                  src="https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop"
+                  alt="Example 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-3">
+                <p className="font-serif text-[10px] text-center leading-tight text-slate-800">Make every post count</p>
+              </div>
+              <div className="instagram-grid-item bg-muted">
+                <img 
+                  src="https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop"
+                  alt="Example 4"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-3">
+                <p className="font-serif text-xs text-center font-medium text-slate-800">Your feed, your story</p>
+              </div>
+              <div className="instagram-grid-item bg-muted">
+                <img 
+                  src="https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop"
+                  alt="Example 6"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-3">
+                <p className="font-serif text-[10px] text-center leading-tight text-slate-800">Quality over quantity, always</p>
+              </div>
+              <div className="instagram-grid-item bg-muted">
+                <img 
+                  src="https://images.pexels.com/photos/19238352/pexels-photo-19238352.jpeg?w=400&h=400&fit=crop"
+                  alt="Example 8"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="instagram-grid-item border border-border bg-white/90 flex items-center justify-center p-3">
+                <p className="font-serif text-[10px] text-center leading-tight text-slate-800">Elevate your visual presence</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-border/50 mt-24">
         <div className="max-w-7xl mx-auto px-6 py-8 text-center">
           <p className="font-mono text-xs tracking-widest uppercase text-slate-500">
