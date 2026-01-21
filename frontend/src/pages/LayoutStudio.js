@@ -176,7 +176,11 @@ const LayoutStudio = ({ user, onLogout }) => {
                         key={filter.id}
                         data-testid={`filter-${filter.name.toLowerCase()}`}
                         onClick={() => setSelectedFilter(filter)}
-                        className={`border p-4 cursor-pointer transition-all ${\n                          selectedFilter?.id === filter.id\n                            ? 'border-primary bg-primary/10'\n                            : 'border-border bg-card hover:border-primary/50'\n                        }`}
+                        className={`border p-4 cursor-pointer transition-all ${
+                          selectedFilter?.id === filter.id
+                            ? 'border-primary bg-primary/10'
+                            : 'border-border bg-card hover:border-primary/50'
+                        }`}
                       >
                         <h3 className="font-sans text-lg font-semibold mb-1">{filter.name}</h3>
                         <p className="font-sans text-sm text-muted-foreground">{filter.description}</p>
