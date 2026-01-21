@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import LayoutStudio from './pages/LayoutStudio';
+import LayoutStudioDemo from './pages/LayoutStudioDemo';
 import '@/App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/auth" element={user ? <Navigate to="/dashboard" /> : <AuthPage onLogin={handleLogin} />} />
           <Route path="/dashboard" element={user ? <Dashboard user={user} onLogout={handleLogout} /> : <Navigate to="/auth" />} />
           <Route path="/studio" element={user ? <LayoutStudio user={user} onLogout={handleLogout} /> : <Navigate to="/auth" />} />
+          <Route path="/studio-demo" element={user ? <LayoutStudioDemo user={user} onLogout={handleLogout} /> : <Navigate to="/auth" />} />
         </Routes>
       </BrowserRouter>
       <Toaster />
