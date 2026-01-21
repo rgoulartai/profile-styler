@@ -1,4 +1,10 @@
 export const realGridExamples = {
+  alternating: {
+    name: 'Alternating',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/zgkguxwd_Screenshot%202026-01-21%20at%206.30.52%E2%80%AFAM.png',
+    description: 'Motivational text and workout photos alternating',
+    niche: 'Fitness'
+  },
   rainbow_flow: {
     name: 'Rainbow Flow',
     image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/zya5geas_Screenshot%202026-01-21%20at%206.01.23%E2%80%AFAM.png',
@@ -13,15 +19,15 @@ export const realGridExamples = {
   },
   moody_motivation: {
     name: 'Moody Motivation',
-    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/zgkguxwd_Screenshot%202026-01-21%20at%206.30.52%E2%80%AFAM.png',
-    description: 'Dark motivational fitness grid with text overlays',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/9kuv0yic_Screenshot%202026-01-21%20at%206.29.56%E2%80%AFAM.png',
+    description: 'Dark dramatic fitness grid - @romanova.fitness style',
     niche: 'Fitness'
   },
   background_unity: {
     name: 'Background Unity',
-    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/9kuv0yic_Screenshot%202026-01-21%20at%206.29.56%E2%80%AFAM.png',
-    description: 'Consistent backgrounds with text - @romanova.fitness',
-    niche: 'Fitness'
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/uo7xnm5e_Screenshot%202026-01-21%20at%206.01.38%E2%80%AFAM.png',
+    description: 'Consistent backgrounds and color palette - Food niche',
+    niche: 'Food'
   },
   timeline: {
     name: 'Timeline Story',
