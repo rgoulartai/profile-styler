@@ -177,21 +177,26 @@ const LayoutStudio = ({ user, onLogout }) => {
               </p>
 
               <div data-testid="instagram-grid-preview" className="instagram-grid mb-8">
-                {instagramPhotos.slice(0, 9).map((photoUrl, index) => (
+                {instagramPhotos.map((photo, index) => (
                   <motion.div
-                    key={`insta-${index}`}
+                    key={photo.id}
                     data-testid={`grid-cell-${index}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="instagram-grid-item border border-border bg-card overflow-hidden"
+                    className="instagram-grid-item border border-border bg-card overflow-hidden relative"
                   >
                     <img
-                      src={photoUrl}
+                      src={photo.data}
                       alt={`Instagram ${index + 1}`}
                       className="w-full h-full object-cover filter-preview"
                       style={{ filter: selectedFilter?.css_filter || 'none' }}
                     />
+                    {photo.type === 'uploaded' && (
+                      <div className="absolute top-2 left-2 bg-primary text-white text-[8px] px-2 py-0.5 font-mono uppercase">
+                        Your Photo
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </div>
