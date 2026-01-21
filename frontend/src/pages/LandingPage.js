@@ -66,11 +66,21 @@ const LandingPage = () => {
           >
             <div className="border border-border bg-card p-8">
               <div className="instagram-grid">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+                {[
+                  "https://images.unsplash.com/photo-1686491730811-df4581911c55?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1675414502288-5118c114bdc0?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1635397199543-402bb9f2f7a4?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1641307734426-35217b09f50b?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1518832168546-8e34741a9dfb?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1645217709128-3ca7191704a0?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1549014999-a9e40e71c93b?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=400&fit=crop",
+                  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop"
+                ].map((url, i) => (
                   <div key={i} className="instagram-grid-item bg-muted">
                     <img 
-                      src={`https://images.unsplash.com/photo-${1680000000000 + i * 10000000}?w=400&h=400&fit=crop`}
-                      alt={`Grid ${i}`}
+                      src={url}
+                      alt={`Grid ${i + 1}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
