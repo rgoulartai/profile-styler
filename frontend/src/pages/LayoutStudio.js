@@ -121,7 +121,7 @@ const LayoutStudio = ({ user, onLogout }) => {
             </Button>
             <div className="flex items-center gap-2">
               <Instagram className="w-6 h-6 text-primary" />
-              <span className="font-serif text-2xl font-medium tracking-tight">Layout Studio</span>
+              <span className="font-serif text-2xl font-medium tracking-tight">Photo Studio</span>
             </div>
           </div>
           <Button
