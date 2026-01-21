@@ -125,32 +125,39 @@ class InstagramProfileStylerTester:
         return False
 
     def test_photo_upload(self):
-        """Test photo upload"""
+        """Test photo upload - upload multiple photos for testing"""
         if not self.user_data:
             print("❌ Cannot test photo upload - no user logged in")
             return False
 
-        # Create test image
-        image_data = self.create_test_image()
+        # Upload 3 photos with different colors for testing
+        colors = [(255, 100, 100), (100, 255, 100), (100, 100, 255)]
+        upload_success = True
         
-        # Prepare form data
-        form_data = {'user_id': self.user_data['id']}
-        files = {'image': ('test_photo.jpg', image_data, 'image/jpeg')}
+        for i, color in enumerate(colors):
+            # Create test image with different visual features
+            image_data = self.create_test_image(color=color)
+            
+            # Prepare form data
+            form_data = {'user_id': self.user_data['id']}
+            files = {'image': (f'test_photo_{i+1}.jpg', image_data, 'image/jpeg')}
+            
+            success, response = self.run_test(
+                f"Photo Upload #{i+1}",
+                "POST",
+                "photos",
+                200,
+                data=form_data,
+                files=files
+            )
+            
+            if success and 'id' in response:
+                self.test_photos.append(response)
+                print(f"   Photo {i+1} uploaded with ID: {response['id']}")
+            else:
+                upload_success = False
         
-        success, response = self.run_test(
-            "Photo Upload",
-            "POST",
-            "photos",
-            200,
-            data=form_data,
-            files=files
-        )
-        
-        if success and 'id' in response:
-            self.test_photos.append(response)
-            print(f"   Photo uploaded with ID: {response['id']}")
-            return True
-        return False
+        return upload_success
 
     def test_get_photos(self):
         """Test getting user photos"""
