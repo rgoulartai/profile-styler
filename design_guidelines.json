@@ -1,0 +1,156 @@
+{
+  "identity": {
+    "name": "E1: The Anti-AI Designer",
+    "tone": "Editorial, Precision, Organic-Tech",
+    "core_philosophy": "Fusion over Imitation. Content is King. Negative Space."
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Playfair Display",
+      "body": "Inter",
+      "mono": "JetBrains Mono"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');"
+    ],
+    "usage": {
+      "h1": "font-serif text-5xl md:text-7xl font-medium tracking-tight leading-[1.1]",
+      "h2": "font-serif text-3xl md:text-5xl font-normal tracking-tight",
+      "h3": "font-sans text-xl md:text-2xl font-semibold tracking-tight uppercase text-muted-foreground",
+      "body": "font-sans text-base leading-relaxed text-slate-600 dark:text-slate-300",
+      "ui_label": "font-mono text-xs tracking-widest uppercase text-slate-500"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "name": "Electric Clay",
+        "hex": "#E15544",
+        "tailwind": "bg-[#E15544] text-white hover:bg-[#C03E2E]"
+      },
+      "background": {
+        "light": "#F2F0E9",
+        "dark": "#0A0A0A",
+        "card_dark": "#121212"
+      },
+      "accent": {
+        "teal": "#2A9D8F",
+        "sand": "#E9C46A"
+      }
+    },
+    "css_vars": {
+      "light": {
+        "--background": "40 15% 93%",
+        "--foreground": "20 14% 4%",
+        "--card": "0 0% 100%",
+        "--card-foreground": "20 14% 4%",
+        "--popover": "0 0% 100%",
+        "--popover-foreground": "20 14% 4%",
+        "--primary": "12 76% 57%",
+        "--primary-foreground": "60 9% 98%",
+        "--secondary": "60 5% 96%",
+        "--secondary-foreground": "24 10% 10%",
+        "--muted": "60 5% 96%",
+        "--muted-foreground": "25 5% 45%",
+        "--accent": "60 5% 96%",
+        "--accent-foreground": "24 10% 10%",
+        "--destructive": "0 84% 60%",
+        "--destructive-foreground": "60 9% 98%",
+        "--border": "20 6% 90%",
+        "--input": "20 6% 90%",
+        "--ring": "12 76% 57%",
+        "--radius": "0rem"
+      },
+      "dark": {
+        "--background": "0 0% 4%",
+        "--foreground": "60 9% 98%",
+        "--card": "0 0% 7%",
+        "--card-foreground": "60 9% 98%",
+        "--popover": "0 0% 7%",
+        "--popover-foreground": "60 9% 98%",
+        "--primary": "12 76% 57%",
+        "--primary-foreground": "60 9% 98%",
+        "--secondary": "0 0% 15%",
+        "--secondary-foreground": "60 9% 98%",
+        "--muted": "0 0% 15%",
+        "--muted-foreground": "24 5% 65%",
+        "--accent": "0 0% 15%",
+        "--accent-foreground": "60 9% 98%",
+        "--destructive": "0 63% 31%",
+        "--destructive-foreground": "60 9% 98%",
+        "--border": "0 0% 15%",
+        "--input": "0 0% 15%",
+        "--ring": "12 76% 57%"
+      }
+    }
+  },
+  "layout_strategies": {
+    "marketing": {
+      "grid": "Mode A: The Tetris Grid",
+      "spacing": "Generous (p-8 to p-24)",
+      "alignment": "Asymmetric",
+      "visuals": "Grainy gradients, overlapping images, large serif typography"
+    },
+    "dashboard": {
+      "grid": "Mode B: High Density Grid",
+      "spacing": "Compact (p-4)",
+      "alignment": "Strict Grid",
+      "visuals": "Dark mode default, 1px borders, no shadows, 'Film Strip' aesthetic"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6 font-medium uppercase tracking-wide text-sm transition-all active:scale-95",
+      "secondary": "rounded-none border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-6 font-medium uppercase tracking-wide text-sm",
+      "ghost": "rounded-none hover:bg-accent hover:text-accent-foreground h-10 px-4 font-medium uppercase tracking-wide text-sm"
+    },
+    "cards": {
+      "style": "rounded-none border border-border bg-card text-card-foreground shadow-none",
+      "hover": "hover:border-primary/50 transition-colors duration-300"
+    },
+    "inputs": {
+      "style": "rounded-none border-input bg-transparent focus:ring-1 focus:ring-primary"
+    }
+  },
+  "visual_enhancers": {
+    "textures": {
+      "grain": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+    },
+    "borders": {
+      "film_strip": "border-dashed border-2 border-muted-foreground/20"
+    }
+  },
+  "image_urls": {
+    "fashion_portraits": [
+      "https://images.unsplash.com/photo-1686491730811-df4581911c55?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBmYXNoaW9uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4OTU1ODk0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1675414502288-5118c114bdc0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHwyfHxhZXN0aGV0aWMlMjBmYXNoaW9uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4OTU1ODk0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1635397199543-402bb9f2f7a4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHw0fHxhZXN0aGV0aWMlMjBmYXNoaW9uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4OTU1ODk0fDA&ixlib=rb-4.1.0&q=85"
+    ],
+    "minimalist_coffee": [
+      "https://images.unsplash.com/photo-1641307734426-35217b09f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY29mZmVlJTIwZmxhdGxheXxlbnwwfHx8fDE3Njg5NTU4OTd8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1518832168546-8e34741a9dfb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwY29mZmVlJTIwZmxhdGxheXxlbnwwfHx8fDE3Njg5NTU4OTd8MA&ixlib=rb-4.1.0&q=85"
+    ],
+    "architecture": [
+      "https://images.unsplash.com/photo-1645217709128-3ca7191704a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBkZXRhaWx8ZW58MHx8fHwxNzY4OTU1ODk5fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1549014999-a9e40e71c93b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBkZXRhaWx8ZW58MHx8fHwxNzY4OTU1ODk5fDA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. UPDATE THEME: Replace the contents of /app/frontend/src/index.css with the CSS variables provided in 'colors.css_vars'.",
+    "2. INSTALL FONTS: Add the Google Fonts import to the top of index.css.",
+    "3. CONFIGURE TAILWIND: Ensure tailwind.config.js extends the font families: 'serif': ['Playfair Display', ...], 'sans': ['Inter', ...], 'mono': ['JetBrains Mono', ...].",
+    "4. LANDING PAGE: Build a 'Tetris Grid' layout. Use the 'fashion_portraits' images as the hero visuals. Use 'Electric Clay' (#E15544) for the main CTA.",
+    "5. DASHBOARD: Default to Dark Mode. Use the 'High Density Grid' for the photo organizer. Use 'minimalist_coffee' and 'architecture' images as demo content for the user's feed.",
+    "6. COMPONENTS: Customize Shadcn components to be 'Square' (radius-none) and 'Flat' (no shadows, just borders). This gives the 'Editorial/Magazine' feel.",
+    "7. ANIMATION: Use 'framer-motion' for smooth layout transitions when the user reorders the grid.",
+    "8. DO NOT use gradients for backgrounds. Use solid colors + the grain texture provided.",
+    "9. CRITICAL: All interactive elements must have data-testid attributes."
+  ],
+  "universal_guidelines": [
+    "Avoid 'AI Slop' (generic centered layouts, blue gradients).",
+    "Use 2-3x more spacing than typical.",
+    "Dark colors must be solid, not gradients.",
+    "Micro-animations on every interaction.",
+    "Use 'sonner' for toasts."
+  ]
+}
