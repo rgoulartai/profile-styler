@@ -11,9 +11,23 @@ import { toast } from 'sonner';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+// Mock Instagram photos to simulate current profile
+const mockInstagramPhotos = [
+  'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop'
+];
+
 const LayoutStudio = ({ user, onLogout }) => {
   const navigate = useNavigate();
   const [photos, setPhotos] = useState([]);
+  const [instagramPhotos, setInstagramPhotos] = useState([]);
   const [filters, setFilters] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [aiSuggestion, setAiSuggestion] = useState('');
@@ -22,6 +36,8 @@ const LayoutStudio = ({ user, onLogout }) => {
 
   useEffect(() => {
     fetchData();
+    // Simulate loading Instagram photos
+    setInstagramPhotos(mockInstagramPhotos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
