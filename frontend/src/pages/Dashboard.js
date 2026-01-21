@@ -202,6 +202,7 @@ const Dashboard = ({ user, onLogout }) => {
 
               <div data-testid="photos-grid">
                 <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-6">All Photos</h2>
+                <p className="font-sans text-sm text-muted-foreground mb-6">Click the X button to delete any photo</p>
                 <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {photos.map((photo) => (
                     <motion.div
@@ -220,7 +221,8 @@ const Dashboard = ({ user, onLogout }) => {
                       <button
                         data-testid={`delete-photo-${photo.id}`}
                         onClick={() => handleDeletePhoto(photo.id)}
-                        className="absolute top-2 right-2 bg-destructive text-destructive-foreground rounded-none w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-destructive/90"
+                        title="Delete photo"
+                        className="absolute top-2 right-2 bg-destructive text-destructive-foreground rounded-none w-8 h-8 flex items-center justify-center opacity-70 hover:opacity-100 group-hover:opacity-100 transition-all hover:scale-110 shadow-lg"
                       >
                         <X className="w-4 h-4" />
                       </button>
