@@ -5,6 +5,12 @@ export const realGridExamples = {
     description: 'Color gradient fashion grid - @sarah_peretz style',
     niche: 'Fashion'
   },
+  color_gradient: {
+    name: 'Color Gradient',
+    image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/w5ca1cxt_Screenshot%202026-01-21%20at%206.01.56%E2%80%AFAM.png',
+    description: 'Subtle blue-to-green gradient - Travel & Fashion mix',
+    niche: 'Travel/Fashion'
+  },
   moody_motivation: {
     name: 'Moody Motivation',
     image: 'https://customer-assets.emergentagent.com/job_6b928bac-1959-4888-998d-0078774b0d9f/artifacts/zgkguxwd_Screenshot%202026-01-21%20at%206.30.52%E2%80%AFAM.png',
