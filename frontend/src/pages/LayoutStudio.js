@@ -148,33 +148,27 @@ const LayoutStudio = ({ user, onLogout }) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-6">Grid Preview</h2>
+              <h2 className="font-serif text-3xl md:text-5xl font-normal tracking-tight mb-6">Your Current Instagram</h2>
               <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-8">
-                Instagram 3x3 layout
+                Apply filters to transform your profile
               </p>
 
               <div data-testid="instagram-grid-preview" className="instagram-grid mb-8">
-                {gridPhotos.map((photo, index) => (
+                {instagramPhotos.slice(0, 9).map((photoUrl, index) => (
                   <motion.div
-                    key={photo?.id || `empty-${index}`}
+                    key={`insta-${index}`}
                     data-testid={`grid-cell-${index}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     className="instagram-grid-item border border-border bg-card overflow-hidden"
                   >
-                    {photo ? (
-                      <img
-                        src={`data:image/jpeg;base64,${photo.image_data}`}
-                        alt={`Grid ${index + 1}`}
-                        className="w-full h-full object-cover filter-preview"
-                        style={{ filter: selectedFilter?.css_filter || 'none' }}
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-muted/20">
-                        <span className="text-muted-foreground text-xs">{index + 1}</span>
-                      </div>
-                    )}
+                    <img
+                      src={photoUrl}
+                      alt={`Instagram ${index + 1}`}
+                      className="w-full h-full object-cover filter-preview"
+                      style={{ filter: selectedFilter?.css_filter || 'none' }}
+                    />
                   </motion.div>
                 ))}
               </div>
