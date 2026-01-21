@@ -146,13 +146,22 @@ const Dashboard = ({ user, onLogout }) => {
             </label>
 
             <Button
+              data-testid="go-to-studio-demo-btn"
+              onClick={() => navigate('/studio-demo')}
+              className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-8 font-medium uppercase tracking-wide text-sm transition-all active:scale-95"
+            >
+              <Wand2 className="w-4 h-4 mr-2" />
+              Try Pattern Demo
+            </Button>
+
+            <Button
               data-testid="go-to-studio-btn"
               onClick={() => navigate('/studio')}
               disabled={photos.length < 3}
               className="rounded-none border border-input bg-background hover:bg-accent hover:text-accent-foreground h-12 px-8 font-medium uppercase tracking-wide text-sm"
             >
               <Wand2 className="w-4 h-4 mr-2" />
-              Go to Studio
+              Your Photos Studio
             </Button>
           </div>
 
