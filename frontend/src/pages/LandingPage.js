@@ -1,10 +1,67 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Instagram, Grid3x3, Sparkles, Wand2 } from 'lucide-react';
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [currentLayout, setCurrentLayout] = useState(0);
+
+  const layouts = [
+    {
+      name: "Minimalist Professional",
+      filter: "brightness(105%) contrast(110%) saturate(105%)",
+      items: [
+        { type: 'text', content: 'Your brand tells a story before you say a word' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Consistency is the foundation of recognition' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Create. Curate. Captivate.' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Every post is part of your visual identity' },
+        { type: 'image', url: 'https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Design with intention, post with purpose' }
+      ]
+    },
+    {
+      name: "Vintage Warmth",
+      filter: "sepia(30%) saturate(120%) brightness(105%)",
+      items: [
+        { type: 'image', url: 'https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Quality over quantity, always' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Build a brand that resonates' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Authenticity attracts' },
+        { type: 'image', url: 'https://images.pexels.com/photos/19238352/pexels-photo-19238352.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Your aesthetic, your rules' },
+        { type: 'image', url: 'https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop' }
+      ]
+    },
+    {
+      name: "Moody & Dramatic",
+      filter: "brightness(85%) contrast(120%) saturate(90%)",
+      items: [
+        { type: 'text', content: 'Stand out in the feed' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1760278041834-dc1021506a0b?w=400&h=400&fit=crop' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1600610429853-81d08d9ae4b1?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Bold content, bold brand' },
+        { type: 'image', url: 'https://images.pexels.com/photos/29152435/pexels-photo-29152435.jpeg?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Make an impact' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1644566622057-baae2f78f652?w=400&h=400&fit=crop' },
+        { type: 'text', content: 'Visual storytelling done right' },
+        { type: 'image', url: 'https://images.pexels.com/photos/19238352/pexels-photo-19238352.jpeg?w=400&h=400&fit=crop' }
+      ]
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentLayout((prev) => (prev + 1) % layouts.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#F2F0E9] grain-texture">
