@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Instagram, LogOut, Wand2, Sparkles, ArrowLeft, Zap, Grid3x3 } from 'lucide-react';
 import PatternLibrary from '@/components/PatternLibrary';
-import { samplePhotos, textSuggestions } from '@/data/samplePhotos';
+import { samplePhotos, textSuggestions, realGridExamples } from '@/data/samplePhotos';
 import { toast } from 'sonner';
 
 const filters = [
@@ -24,6 +24,7 @@ const LayoutStudioDemo = ({ user, onLogout }) => {
   const navigate = useNavigate();
   const [selectedPattern, setSelectedPattern] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState(filters[0]);
+  const [showRealExample, setShowRealExample] = useState(false);
   const [gridPhotos, setGridPhotos] = useState([]);
   const [aiSuggesting, setAiSuggesting] = useState(false);
 
